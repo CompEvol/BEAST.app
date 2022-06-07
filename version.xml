@@ -1,0 +1,118 @@
+<package name='BEAST.app' version='2.7.0'>
+	<depends on='BEAST.base' atleast='2.7.0' atmost="2.7.9"/>
+    <packageapp description="Create BEAST documentation"
+              class="beast.app.tools.DocMaker"
+              args=""
+              icon=""
+            />
+    <packageapp description="Analyse logs of EBSP analysis for demographic reconstruction"
+              class="beast.app.tools.EBSPAnalyser"
+              args=""
+              icon=""
+            />
+    <packageapp description="Analyse trace logs and produce statistics on traces"
+              class="beast.app.tools.LogAnalyser"
+              args=""
+              icon=""
+            />
+    <packageapp description="Visualise and analyse BEAST models"
+              class="beast.app.tools.ModelBuilder"
+              args=""
+              icon=""
+            />
+    <packageapp description="Represents an analysis of a list of trees obtained either directly from a logger or from a trace file. The set of tree topologies is calculated by given credible set probability threshold (default 95%)."
+              class="beast.app.tools.TreeTraceAnalysis"
+              args=""
+              icon=""
+            />
+    <packageapp description="Does sanity checks on a BEAST package"
+              class="beast.app.tools.PackageHealthChecker"
+              args=""
+              icon=""
+            />
+            <!--
+			<service type="beast.pkgmgmt.NameSpaceInfo">
+				<provider classname="beast.app.NameSpaceInfo"/>
+			</service>
+			-->
+			
+			<service type="beast.app.inputeditor.InputEditor">
+				<provider classname="beast.app.inputeditor.AlignmentListInputEditor"/>
+				<provider classname="beast.app.inputeditor.BEASTObjectInputEditor"/>
+				<provider classname="beast.app.inputeditor.BooleanInputEditor"/>
+				<provider classname="beast.app.inputeditor.DoubleInputEditor"/>
+				<provider classname="beast.app.inputeditor.DoubleListInputEditor"/>
+				<provider classname="beast.app.inputeditor.EnumInputEditor"/>
+				<provider classname="beast.app.inputeditor.FileInputEditor"/>
+				<provider classname="beast.app.inputeditor.FileListInputEditor"/>
+				<provider classname="beast.app.inputeditor.IntegerInputEditor"/>
+				<provider classname="beast.app.inputeditor.IntegerListInputEditor"/>
+				<provider classname="beast.app.inputeditor.ListInputEditor"/>
+				<provider classname="beast.app.inputeditor.LogFileInputEditor"/>
+				<provider classname="beast.app.inputeditor.LogFileListInputEditor"/>
+				<provider classname="beast.app.inputeditor.LoggerListInputEditor"/>
+				<provider classname="beast.app.inputeditor.LongInputEditor"/>
+				<provider classname="beast.app.inputeditor.MRCAPriorInputEditor"/>
+				<provider classname="beast.app.inputeditor.OutFileInputEditor"/>
+				<provider classname="beast.app.inputeditor.OutFileListInputEditor"/>
+				<provider classname="beast.app.inputeditor.ParameterInputEditor"/>
+				<provider classname="beast.app.inputeditor.ParametricDistributionInputEditor"/>
+				<provider classname="beast.app.inputeditor.SiteModelInputEditor"/>
+				<provider classname="beast.app.inputeditor.StringInputEditor"/>
+				<provider classname="beast.app.inputeditor.TaxonSetInputEditor"/>
+				<provider classname="beast.app.inputeditor.TaxonSetListInputEditor"/>
+				<provider classname="beast.app.inputeditor.TipDatesInputEditor"/>
+				<provider classname="beast.app.inputeditor.TreeFileInputEditor"/>
+				<provider classname="beast.app.inputeditor.TreeFileListInputEditor"/>
+				<provider classname="beast.app.inputeditor.XMLFileInputEditor"/>
+				<provider classname="beast.app.inputeditor.XMLFileListInputEditor"/>
+				<provider classname="beast.app.beauti.ClockModelListInputEditor"/>
+				<provider classname="beast.app.beauti.ConstantPopulationInputEditor"/>
+				<provider classname="beast.app.beauti.FrequenciesInputEditor"/>
+				<provider classname="beast.app.beauti.GeneTreeForSpeciesTreeDistributionInputEditor"/>
+				<provider classname="beast.app.beauti.OperatorListInputEditor"/>
+				<provider classname="beast.app.beauti.PriorInputEditor"/>
+				<provider classname="beast.app.beauti.PriorListInputEditor"/>
+				<provider classname="beast.app.beauti.SpeciesTreePriorInputEditor"/>
+				<provider classname="beast.app.beauti.StateNodeInitialiserListInputEditor"/>
+				<provider classname="beast.app.beauti.StateNodeListInputEditor"/>
+				<provider classname="beast.app.beauti.TreeDistributionInputEditor"/>
+			</service>
+	
+			<!-- AlignmentImporter declares classes for parsing different alignment formats -->
+			<service type="beast.app.inputeditor.AlignmentImporter">
+				<provider classname="beast.app.inputeditor.NexusImporter"/>
+				<provider classname="beast.app.inputeditor.FastaImporter"/>
+				<provider classname="beast.app.inputeditor.XMLImporter"/>
+			</service>
+	
+		    <service type="beast.base.core.BEASTInterface">
+    		    <provider classname="beast.app.beauti.Fragment"/>
+		        <provider classname="beast.app.draw.BEASTObjectSet"/>
+        		<provider classname="beast.app.inputeditor.BeautiAlignmentProvider"/>
+		        <provider classname="beast.app.inputeditor.BeautiConfig"/>
+        		<provider classname="beast.app.inputeditor.BeautiConnector"/>
+		        <provider classname="beast.app.inputeditor.BeautiDoc"/>
+        		<provider classname="beast.app.inputeditor.BeautiPanelConfig"/>
+		        <provider classname="beast.app.inputeditor.BeautiSubTemplate"/>
+        		<provider classname="beast.app.seqgen.MergeDataWith"/>
+		        <provider classname="beast.app.seqgen.SequenceSimulator"/>
+        		<provider classname="beast.app.seqgen.SimulatedAlignment"/>
+		        <provider classname="beast.app.tools.ClassEnumerator"/>
+		        <provider classname="beast.app.tools.JarHealthChecker"/>
+        		<provider classname="beast.app.tools.PackageHealthChecker"/>
+		    </service>
+
+			<!--
+			<service type="beast.app.beauti.BeautiHelpAction">		</service>
+			-->
+			
+			<!--			
+			PriorProvider is for providing extra priors in the prior panel of BEAUti
+			like MultiMonophyleticConstrains
+			-->
+			<service type="beast.app.beauti.PriorProvider">
+				<provider classname="beast.app.beauti.MRCAPriorProvider"/>
+			</service>
+            	
+</package>
